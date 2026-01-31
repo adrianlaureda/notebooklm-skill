@@ -59,6 +59,13 @@ The `run.py` wrapper automatically:
 
 ## Core Workflow
 
+### Step 0: Auto-Sync Library (Automatic)
+Before any notebook operation, run auto-sync to ensure library is up-to-date:
+```bash
+python scripts/run.py auto_sync.py
+```
+This only syncs if 24+ hours passed since last sync. Use `--force` to sync immediately.
+
 ### Step 1: Check Authentication Status
 ```bash
 python scripts/run.py auth_manager.py status
@@ -172,6 +179,12 @@ python scripts/run.py cleanup_manager.py --confirm          # Execute cleanup
 python scripts/run.py cleanup_manager.py --preserve-library # Keep notebooks
 ```
 
+### Studio Generator (`studio_generator.py`)
+```bash
+python scripts/run.py studio_generator.py --notebook-id ID --type TYPE [--prompt "..."] [--headless]
+# Types: video, audio, mindmap, quiz, infographic, presentation, table
+```
+
 ## Environment Management
 
 The virtual environment is automatically managed:
@@ -248,12 +261,49 @@ Synthesize and respond to user
 5. **Include context** - Each question is independent
 6. **Synthesize answers** - Combine multiple responses
 
+## Studio Content Generation
+
+El Studio de NotebookLM permite generar contenido educativo a partir de los documentos del cuaderno.
+
+### Tipos de contenido disponibles
+
+| Tipo | Comando | Descripción |
+|------|---------|-------------|
+| `video` | Resumen de vídeo | Genera un vídeo explicativo |
+| `audio` | Resumen de audio | Genera un podcast/audio |
+| `mindmap` | Mapa mental | Genera un mapa conceptual |
+| `quiz` | Cuestionario | Genera preguntas de evaluación |
+| `infographic` | Infografía | Genera una infografía visual |
+| `presentation` | Presentación | Genera una presentación |
+| `table` | Tabla de datos | Genera una tabla resumen |
+
+### Uso del Studio
+
+```bash
+# Generar vídeo
+python scripts/run.py studio_generator.py --notebook-id "UUID" --type video
+
+# Generar mapa mental con prompt personalizado
+python scripts/run.py studio_generator.py --notebook-id "UUID" --type mindmap --prompt "Enfócate en los conceptos principales"
+
+# Generar cuestionario
+python scripts/run.py studio_generator.py --notebook-id "UUID" --type quiz --prompt "10 preguntas de opción múltiple"
+```
+
+### Notas importantes
+
+- La generación puede tardar varios minutos (especialmente vídeos)
+- El navegador se muestra por defecto para ver el progreso
+- Se guarda screenshot del resultado en `data/`
+- Usa `--headless` para ejecución sin ventana (no recomendado)
+
 ## Limitations
 
 - No session persistence (each question = new browser)
 - Rate limits on free Google accounts (50 queries/day)
 - Manual upload required (user must add docs to NotebookLM)
 - Browser overhead (few seconds per question)
+- Studio generation can take several minutes
 
 ## Resources (Skill Structure)
 
