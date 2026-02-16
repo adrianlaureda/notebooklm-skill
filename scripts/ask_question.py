@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+[DEPRECATED] Usar nlm_query.py en su lugar.
 Simple NotebookLM Question Interface
 Based on MCP server implementation - simplified without sessions
 

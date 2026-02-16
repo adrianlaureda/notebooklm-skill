@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+[DEPRECATED] Usar nlm_auth.py en su lugar.
 Authentication Manager for NotebookLM
 Handles Google login and browser state persistence
 Based on the MCP server implementation

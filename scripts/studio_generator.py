@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+[DEPRECATED] Usar nlm_studio.py en su lugar.
 Genera contenido del Studio de NotebookLM (vídeos, presentaciones, etc.)
 Modo interactivo: detecta y permite configurar las opciones reales de la UI.
 """

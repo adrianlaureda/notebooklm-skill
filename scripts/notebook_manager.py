@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+[DEPRECATED] Usar nlm_notebook.py en su lugar.
 Notebook Library Management for NotebookLM
 Manages a library of NotebookLM notebooks with metadata
 Based on the MCP server implementation

@@ -1,9 +1,10 @@
 # NotebookLM Skill Dependencies
-# These will be installed in the skill's local .venv
+# Se instalan en .venv local del skill
 
-# Core browser automation with anti-detection
-# Note: After installation, run: patchright install chrome
-# (Chrome is required, not Chromium, for cross-platform reliability)
+# API de NotebookLM (con soporte de login por navegador)
+notebooklm-py[browser]
+
+# Browser automation legacy (mantener para fallback)
 patchright==1.55.2
 
 # Environment management
