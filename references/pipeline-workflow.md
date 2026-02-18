@@ -43,8 +43,8 @@ python scripts/run.py nlm_workflow.py \
 
 ## Caso: material educativo desde Google Drive
 
-1. Usar Workspace MCP para buscar documentos en Drive
-2. Obtener URLs compartibles
+1. Buscar documentos con gogcli: `gog --account trabajo drive search "tema" --json`
+2. Obtener URLs: `gog --account trabajo drive url <fileId>`
 3. Pasarlas como fuentes tipo `drive`
 
 ## Paso a paso manual (sin workflow)
