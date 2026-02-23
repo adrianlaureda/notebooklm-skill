@@ -12,6 +12,21 @@ description: >
 Usa **notebooklm-py** (API Python, sin browser automation) para automatizar NotebookLM.
 Todos los scripts `nlm_*` se ejecutan vía `run.py` que gestiona el venv automáticamente.
 
+## Routing: MCP vs Scripts
+
+Antes de cualquier operación, detectar si el MCP `notebooklm` está disponible como tool nativa.
+
+| Condición | Operación | Usar |
+|-----------|-----------|------|
+| MCP disponible | Crear notebook, listar, añadir fuente (URL/YouTube/Drive/texto), query | **MCP tools** directamente |
+| MCP disponible | Studio (quiz, mindmap, infographic, report, flashcards, slide_deck, data_table) | **scripts nlm_*** |
+| MCP disponible | Pipeline completo, guardar en Obsidian, añadir archivo local | **scripts nlm_*** |
+| MCP NO disponible | Cualquier operación | **scripts nlm_*** |
+
+> El MCP y los scripts usan auth separada y no interfieren. Nunca lanzar ambos en paralelo sobre la misma operación.
+
+---
+
 ## Workflow (Decision Tree)
 
 ### Crear notebook con fuentes
